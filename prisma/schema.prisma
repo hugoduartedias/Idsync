@@ -1,0 +1,139 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  user
+  admin
+}
+
+enum Status {
+  pending
+  approved
+  canceled
+}
+
+enum VerificationStatus {
+  pending
+  valid
+  invalid
+  in_analysis
+}
+
+model User {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  name      String?
+  authToken String
+  email     String
+  password  String
+  role      String? @default("user")
+
+  createdAt    DateTime?      @default(now())
+  updatedAt    DateTime?      @default(now())
+  Purchase     Purchase[]
+  Balance      Balance[]
+  Verification Verification[]
+}
+
+model Plan {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  name        String
+  slug        String
+  price       Float   @default(0)
+  credits     Float   @default(0)
+  description String?
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+
+  Order    Order[]
+  PlanMeta PlanMeta[]
+}
+
+model PlanMeta {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  name   String
+  value  String?
+  planId String  @db.ObjectId
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+
+  plan Plan @relation(fields: [planId], references: [id])
+}
+
+model Order {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  tid    String
+  total  Float  @default(0)
+  status Status @default(pending)
+  userId String @db.ObjectId
+  planId String @db.ObjectId
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+
+  plan     Plan?      @relation(fields: [planId], references: [id])
+  Purchase Purchase[]
+}
+
+model Purchase {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  userId  String  @db.ObjectId
+  orderId String  @db.ObjectId
+  apikey  String
+  status  Boolean
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+
+  user  User  @relation(fields: [userId], references: [id])
+  order Order @relation(fields: [orderId], references: [id])
+}
+
+model Balance {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  amount Float  @default(0)
+  userId String @db.ObjectId
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Verification {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  userId      String             @db.ObjectId
+  callbackUrl String?
+  uuid        String
+  status      VerificationStatus @default(pending)
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Email {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  email  String?
+  number String?
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+}
