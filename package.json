@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "next build",
-    "build:prod": "NODE_ENV=production; next build",
-    "build:prod:win": "set NODE_ENV=production & next build",
+    "build": "prisma generate && next build",
+    "build:prod": "NODE_ENV=production; prisma generate && next build",
+    "build:prod:win": "set NODE_ENV=production && prisma generate && next build",
     "start": "next start -p 3001",
     "lint": "next lint"
   },
