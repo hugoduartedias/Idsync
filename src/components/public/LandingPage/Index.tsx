@@ -4,6 +4,8 @@ import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import Swal from 'sweetalert2'
+import Segmentos from './Segmentos'
+import Valor from './Valor'
 // import { Player, Controls } from '@lottiefiles/react-lottie-player'
 const Player = dynamic(
   () =>
@@ -158,9 +160,9 @@ export function LandingPage() {
                 Bem-vindo à Idsync
               </h1>
               <p className="mt-5 text-gray-500 font-semibold max-w-[700px]">
-                A Idsync é uma startup de verificação facial, documental e
-                biometrica que ajuda empresas a combater a falsificação
-                ideológica e lavagem de dinheiro.
+                A Idsync é uma startup especializada em verificação facial, documentos, biometria facial, comprovante de CEP, comparação e comprovação facial, assinatura de documentos,
+                e análise de risco de crédito para empresas. Atuamos em diversos setores, incluindo Fintechs, apostas esportivas, seguros, saúde (hospitais, laboratórios e clínicas),
+                logística, controle e acesso de prédios comerciais e residenciais, imobiliário, e educação.
               </p>
             </div>
             {/* <div className="mt-10 max-w-[650px] bg-[#003140] rounded-2xl text-white py-5 ps-5 pe-10 font-semibold">
@@ -524,25 +526,6 @@ export function LandingPage() {
         <div className="mt-20">
           <div className="px-3 xl:px-0 lg:flex justify-between items-center py-5 max-w-6xl mx-auto">
             <div className="hidden xl:block">
-              <Player
-                src="/app2.json"
-                background="transparent"
-                speed={1}
-                style={{ width: '500px', height: '500px' }}
-                loop
-                className="w-[48rem] max-w-none rounded-2xl"
-                autoplay
-              ></Player>
-            </div>
-            <div className="xl:ms-10">
-              <h1 className="text-[#09546b] text-3xl lg:text-7xl font-bold">
-                Soluções para Fintechs
-              </h1>
-              <p className="mt-5 text-gray-500 font-semibold max-w-[700px]">
-                Nosso avançado sistema de verificação facial e de documentos
-                garante a autenticidade de clientes em processos de onboarding e
-                transações financeiras, protegendo sua fintech de fraudes.
-              </p>
             </div>
           </div>
         </div>
@@ -581,6 +564,10 @@ export function LandingPage() {
             </div>
           </div>
         </div>
+        <div className='mt-10'>
+          <Segmentos />
+        </div>
+
       </main>
 
       <footer className="mt-20 w-full mb-20" style={{ marginTop: '200px' }}>

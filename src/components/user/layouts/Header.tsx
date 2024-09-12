@@ -49,7 +49,7 @@ export default function Header({ user }: any) {
           <div className="flex items-center">
             <div>
               <ul className="py-3 flex px-2 pt-2 relative">
-                <li className={user.role === 'admin' ? '' : 'hidden'}>
+                <li className={user?.role === 'admin' ? '' : 'hidden'}>
                   <Link
                     href={{ pathname: '/user/dashboard' }}
                     className="mt-1 group flex items-center hover:scale-105 transform px-2 py-2 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 cursor-pointer text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none"
@@ -72,7 +72,8 @@ export default function Header({ user }: any) {
                     <span className="pl-2">Dashboard</span>
                   </Link>
                 </li>
-                <li className={user.role === 'admin' ? '' : 'hidden'}>
+                <li className={user?.role === 'admin' ? '' : 'hidden'}>
+
                   <Link
                     href={{ pathname: '/admin/orders' }}
                     className="mt-1 group flex items-center hover:scale-105 transform px-2 py-2 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 cursor-pointer text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none"
@@ -92,7 +93,8 @@ export default function Header({ user }: any) {
                     <span className="pl-2">Pedidos</span>
                   </Link>
                 </li>
-                <li className={user.role === 'admin' ? '' : 'hidden'}>
+                <li className={user?.role === 'admin' ? '' : 'hidden'}>
+
                   <Link
                     href={{ pathname: '/admin/users' }}
                     className="mt-1 group flex items-center hover:scale-105 transform px-2 py-2 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 cursor-pointer text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none"
@@ -111,7 +113,7 @@ export default function Header({ user }: any) {
                     <span className="pl-2">Usuários</span>
                   </Link>
                 </li>
-                <li className={user.role === 'admin' ? '' : 'hidden'}>
+                <li className={user?.role === 'admin' ? '' : 'hidden'}>
                   <Link
                     href={{ pathname: '/admin/emails' }}
                     className="mt-1 group flex items-center hover:scale-105 transform px-2 py-2 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 cursor-pointer text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none"
@@ -140,7 +142,7 @@ export default function Header({ user }: any) {
                     <span className="pl-2">Números de WhatsApp</span>
                   </Link>
                 </li>
-                <li className={user.role === 'admin' ? 'hidden' : ''}>
+                <li className={user?.role === 'admin' ? '' : 'hidden'}>
                   <Link
                     href={{ pathname: '/user/profile' }}
                     className="mt-1 group flex items-center hover:scale-105 transform px-2 py-2 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 cursor-pointer text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none"
@@ -162,7 +164,7 @@ export default function Header({ user }: any) {
                     <span className="pl-2">Soluções</span>
                   </Link>
                 </li>
-                <li className={user.role === 'admin' ? 'hidden' : ''}>
+                <li className={user?.role === 'admin' ? '' : 'hidden'}>
                   <Link
                     href={{ pathname: '/user/profile' }}
                     className="mt-1 group flex items-center hover:scale-105 transform px-2 py-2 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 cursor-pointer text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none"
@@ -182,7 +184,7 @@ export default function Header({ user }: any) {
                     <span className="pl-2">Plataforma</span>
                   </Link>
                 </li>
-                <li className={user.role === 'admin' ? 'hidden' : ''}>
+                <li className={user?.role === 'admin' ? '' : 'hidden'}>
                   <Link
                     href={{ pathname: '/user/profile' }}
                     className="mt-1 group flex items-center hover:scale-105 transform px-2 py-2 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 cursor-pointer text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none"
@@ -201,7 +203,8 @@ export default function Header({ user }: any) {
                     <span className="pl-2">Segmentos</span>
                   </Link>
                 </li>
-                <li className={user.role === 'admin' ? 'hidden' : ''}>
+                <li className={user?.role === 'admin' ? '' : 'hidden'}>
+
                   <Link
                     href={{ pathname: '/user/profile' }}
                     className="mt-1 group flex items-center hover:scale-105 transform px-2 py-2 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 cursor-pointer text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none"
@@ -220,7 +223,8 @@ export default function Header({ user }: any) {
                     <span className="pl-2">Recursos</span>
                   </Link>
                 </li>
-                <li className={user.role === 'admin' ? 'hidden' : ''}>
+                <li className={user?.role === 'admin' ? '' : 'hidden'}>
+
                   <Link
                     href={{ pathname: '/user/profile' }}
                     className="mt-1 group flex items-center hover:scale-105 transform px-2 py-2 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 cursor-pointer text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none"

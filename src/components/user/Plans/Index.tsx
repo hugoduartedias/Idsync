@@ -21,7 +21,7 @@ export default function Plans({ user, balance, plans, order }: any) {
         </div>
 
         <div>
-          {plans.map((plan: Plan) => {
+          {plans?.map((plan: Plan) => {
             if (plan.slug !== 'teste') {
               return (
                 <div
@@ -125,26 +125,26 @@ export default function Plans({ user, balance, plans, order }: any) {
                         </p>
                         {order?.id && order?.plan.id === plan.id
                           ? (
-                          <a className="mt-10 block w-full rounded-md bg-gray-300 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            Plano em vigor
-                          </a>
-                            )
+                            <a className="mt-10 block w-full rounded-md bg-gray-300 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                              Plano em vigor
+                            </a>
+                          )
                           : order?.slug === 'enterprise'
                             ? (
-                          <a className="mt-10 block w-full rounded-md bg-gray-300 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            Sob demanda
-                          </a>
-                              )
+                              <a className="mt-10 block w-full rounded-md bg-gray-300 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                Sob demanda
+                              </a>
+                            )
                             : (
-                          <Link
-                            href={{
-                              pathname: `/user/plan/${plan.id}/checkout`
-                            }}
-                            className="cursor-pointer mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                          >
-                            Mudar para este plano
-                          </Link>
-                              )}
+                              <Link
+                                href={{
+                                  pathname: `/user/plan/${plan.id}/checkout`
+                                }}
+                                className="cursor-pointer mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                              >
+                                Mudar para este plano
+                              </Link>
+                            )}
                         <p className="mt-6 text-xs leading-5 text-gray-600">
                           Faturas e recibos disponíveis para fácil reembolso da
                           empresa
